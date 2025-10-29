@@ -62,12 +62,11 @@ img{
 
 /*? Mobile screen*/
 .container{
-    /* min-width: 320px; */
     padding: 0 16px;
     margin: 0 auto;
 
-    outline: 2px solid red;
-    outline-offset: -2px;
+    /* outline: 2px solid red;
+    outline-offset: -2px; */
 }
 
 /*? Tablet screen*/
@@ -894,10 +893,11 @@ img{
 }
 
 .modal {
-    width: 408px;
-    min-height: 584px;
-    padding: 24px;
-    padding-top: 72px;
+    width: 288px;
+    height: 623px;
+    /* padding: 16px;
+    padding-top: 72px; */
+    padding: 72px 16px 24px;
 
     position: absolute;
     top: 50%;
@@ -909,6 +909,14 @@ img{
     box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 2px 1px 0 rgba(0, 0, 0, 0.2);
 
     transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@media only screen and (min-width: 768px) {
+  .modal {
+    width: 408px;
+    height: 584px;
+    padding: 24px;
+  }
 }
 
 .backdrop.is-open .modal{
@@ -931,10 +939,17 @@ img{
     background-color: #E7E9FC;
     border-radius: 50%;
     border: 1px solid rgba(0, 0, 0, 0.1);
-
+    
     transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
     transition-property: background-color, border;
 }
+
+@media only screen and (max-width: 767px) {
+    .modal-bnt {
+        box-shadow: 0 2px 1px 0 rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12);
+  }
+}
+
 .modal-btn-icon{
     fill: #2E2F42;
     transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -953,7 +968,7 @@ img{
 }
 
 .modal-caption {
-    max-width: 360px;
+    max-width: 256px;
     margin-bottom: 16px;
 
     font-weight: 500;
@@ -961,6 +976,12 @@ img{
     letter-spacing: 0.02em;
     text-align: center;
     color: #2E2F42;
+}
+
+@media only screen and (min-width: 768px) {
+  .modal-caption {
+    max-width: 360px;
+  }
 }
 
 .modal-form-field{
@@ -1100,6 +1121,31 @@ input[type='checkbox']:checked + .modal-checkbox-wrapper > .modal-agreement-chec
 /* #endregion */
 
 /* #region Mobile menu */
+.mobile-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+    transform: translateX(100%);
+
+    background: #fff;
+
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.mobile-menu.is-open{
+    transform: translateX(0);
+}
+
+.mobile-menu .container{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 72px 16px 40px;
+}
+
 .mobile-menu-btn {
     display: flex;
     align-items: center;
@@ -1121,6 +1167,87 @@ input[type='checkbox']:checked + .modal-checkbox-wrapper > .modal-agreement-chec
     }
 }
 
+.mobile-menu-bnt {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    width: 24px;
+    height: 24px;
+    padding: 0;
 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+    background-color: transparent;
+    border-radius: 50%;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+
+    transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition-property: background-color, border;
+}
+
+.modal-btn-icon {
+    fill: #2E2F42;
+    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal-bnt:hover,
+.modal-bnt:focus {
+    background-color: #404BBF;
+    fill: #fff;
+    border: none;
+}
+
+.modal-bnt:hover .modal-btn-icon,
+.modal-bnt:focus .modal-btn-icon {
+    fill: #fff;
+}
+
+.mobile-menu-nav {
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 1.11;
+    letter-spacing: 0.02em;
+
+    margin-bottom: auto;
+}
+
+.mobile-menu-nav .mobile-menu-item:not(:last-child) {
+    margin-bottom: 40px;
+}
+
+.mobile-menu-link {
+    text-decoration: none;
+    color: #2E2F42;
+}
+
+.mobile-menu-contacts {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 1.2;
+    letter-spacing: 0.02em;
+    color: #434455;
+
+    margin-bottom: 48px;
+}
+
+.mobile-menu-contacts .mobile-menu-item:not(:last-child){
+    margin-bottom: 24px;
+}
+
+.mobile-menu-contacts .mobile-menu-item:first-child .mobile-menu-link{
+    color: #4D5AE5;
+}
+
+.mobile-menu-socials{
+    display: flex;
+    gap: 40px;
+}
+
+.mobile-menu-icons {
+    fill: currentColor;
+}
 
 /* #endregion*/
